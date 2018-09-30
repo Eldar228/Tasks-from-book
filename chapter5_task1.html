@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <title>Task</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script>
+ var words = [
+    "программа",
+    "макака",
+    "прекрасный",
+    "оладушек",
+    "лодка",
+    "дерево"
+];
+  var word = words[Math.floor(Math.random() * words.length)];
+  var answerArray = [];
+  for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+  };
+  var remainingLetters = word.length;
+  var score = 0;
+  while (remainingLetters > 0 && score < word.length) {
+    alert(answerArray.join(" "));
+  var guess = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
+  var b = guess.toLowerCase();
+          if (b === null) {
+            break;
+          } else if (b.length !== 1) {
+            alert("Пожалуйста, введите одиночную букву.");
+          } else {
+            for (var j = 0; j < word.length; j++) {
+              if (word[j] === b) {
+answerArray[j] = b;
+                 remainingLetters--;
+}; };
+};
+
+                 score++;
+};if (score === word.length) {
+alert("Вы проиграли!");
+score = 0;
+                 }else {
+                  alert("Отлично! Было загадано слово " + word);
+                 }
+</script>
+</body>
+
+</html>

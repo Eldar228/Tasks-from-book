@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Work</title>
+</head>
+<body>
+    <h1 id="main">Привет мир!</h1>
+    <script>
+     var b = ["Рома","Амир","Арсен","Ера"];
+     $("h1").hide("5000").text("Мои друзья").fadeIn("4000");
+     for(var i = 0; i < b.length;i++) {
+       $("body").append("<p>" + b[i] + "</p>");
+       $("p").hide("3000").fadeIn("3000");
+     };
+$("p").append(" лучший");
+$("p").hide("3000").fadeIn("3000");
+</script>
+</body>
+</html>
