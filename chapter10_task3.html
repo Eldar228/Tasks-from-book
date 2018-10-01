@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <h1 id="heading">
+                HELLO
+              </h1>
+              <script>
+              var direction = 'вправо';
+              var offset = 0;
+              $("#heading").offset({ left: offset, top: offset });
+              var moveHeading = function () {
+                if (direction === 'вправо') {
+                  $("#heading").offset({ left: offset });
+                  offset++;
+                  if (offset > 200) {
+                    offset = 0;
+                    direction = 'вниз';
+                  }
+                } else if (direction === 'вниз') {
+                  $("#heading").offset({ top: offset });
+                  offset++;
+                  if (offset > 200) {
+                    offset = 200;
+                    direction = 'влево';
+                  }
+                } else if (direction === 'влево') {
+                  $("#heading").offset({ left: offset });
+                  offset--;
+                  if (offset < 0) {
+                    offset = 200;
+                    direction = 'вверх';
+                  }
+                } else if (direction === 'вверх') {
+                  $("#heading").offset({ top: offset });
+                  offset--;
+                  if (offset < 0) {
+                    offset = 0;
+                    direction = 'вправо';
+                  }
+                }
+              };
+    var time = setInterval(moveHeading, 30);
+              $("#heading").click(function () {
+                  clearInterval(time);
+              });
+              </script>
+</body>
+</html>
