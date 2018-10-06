@@ -40,6 +40,10 @@ if(distance < 10) {
     return "Холодно";
 } else if (distance < 320) {
     return "Очень холодно";
+} else if(distance < 640) {
+    return "Очень очень холодно";
+} else if (distance < 640) {
+    return "очень очень холодно";
 } else {
 return "Замерзнешь!";
 };
@@ -48,6 +52,7 @@ return "Замерзнешь!";
  var width = 800;
  var height = 800;
  var counter = 0;
+ var limit = 25;
 var target = {
 x: randomPlace(width),
 y: randomPlace(height)
@@ -55,6 +60,9 @@ y: randomPlace(height)
 //когда кликают выполняются все функции выше
 $("#map").click(function(event) {
     counter++;
+    if (counter > limit) {
+        return  alert("КОНЕЦ ИГРЫ");
+      };
 var distance = getDistance(event, target);
 var distancehint = distanceHint(distance);
 $("#distance").text(distancehint);
