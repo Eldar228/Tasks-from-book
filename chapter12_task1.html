@@ -1,18 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+        <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+    <title>Гонки</title>
 </head>
 <body>
-    <h1></h1>
-        <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
     <script>
- const Car = function(x,y) {
-this.x = x;
-this.y = y; 
- };
- $('h1').text(1);
+    var Car = function (x, y) {
+      this.x = x;
+      this.y = y;
+      this.draw();
+    };
+
+    Car.prototype.draw = function () {
+      var carHtml = '<img src="http://nostarch.com/images/car.png">';
+
+      this.carElement = $(carHtml);
+
+      this.carElement.css({
+        position: "absolute",
+        left: this.x,
+        top: this.y
+      });
+
+      $("body").append(this.carElement);
+    };
+
+    Car.prototype.moveRight = function () {
+      this.x += 5;
+
+      this.carElement.css({
+        left: this.x,
+        top: this.y
+      });
+    };
+
+    Car.prototype.moveLeft = function () {
+      this.x -= 5;
+
+      this.carElement.css({
+        left: this.x,
+        top: this.y
+      });
+    };
+
+    Car.prototype.moveUp = function () {
+      this.y -= 5;
+
+      this.carElement.css({
+        left: this.x,
+        top: this.y
+      });
+    };
+
+    Car.prototype.moveDown = function () {
+      this.y += 5;
+
+      this.carElement.css({
+        left: this.x,
+        top: this.y
+      });
+    };
+
+    var tesla = new Car(20, 20);
+    var nissan = new Car(100, 200);
     </script>
 </body>
 </html>
